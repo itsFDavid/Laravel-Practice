@@ -1,0 +1,12 @@
+services:
+    db:
+        image: mysql:8.0
+        environment:
+            - MYSQL_ROOT_PASSWORD=laravel
+            - MYSQL_USER=laravel
+            - MYSQL_PASSWORD=laravel
+            - MYSQL_DATABASE=laravel-02-book-review
+        ports:
+            - "3306:3306"
+        volumes:
+            - ./db:/var/lib/mysql
