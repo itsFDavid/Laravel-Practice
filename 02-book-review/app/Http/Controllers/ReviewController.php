@@ -3,10 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
+use Illuminate\Routing\Controller;
 use Illuminate\Http\Request;
 
 class ReviewController extends Controller
 {
+
+    public function __construct(){
+        $this->middleware('throttle:reviews')->only(['store']);
+    }
+
     /**
      * Display a listing of the resource.
      */
