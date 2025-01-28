@@ -24,20 +24,20 @@ class BookController extends Controller
             'popular_last_6months' => $books->popularLast6Months(),
             'highest_rated_last_month' => $books->highestRatedLastMonth(),
             'highest_rated_last_6months' => $books->highestRatedLast6Months(),
-            default => $books->latest()->withAvgRating()->withReviewsCount()
+            default => $books->latest()->withAvgRating()->withReviewsCount(),
         };
 
         // $book = $books->get();
 
         // esto es para cachear la consulta
-        $cacheKey = 'books:' . $filter . ':' . $title;
+        $cacheKey = 'books:' . $filter . ':' . $title . ':page:' . $request->input('page', 1);
         $books =
-            // cache()->remember(
-                // $cacheKey,
-                // 3600,
-                // fn()=>
-                    $books->get();
-            // );
+            cache()->remember(
+                $cacheKey,
+                3600,
+                fn()=>
+                    $books->paginate(15)
+            );
 
         // se puede hacer de esta forma
         return view('books.index', ['books' => $books]);

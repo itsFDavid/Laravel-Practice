@@ -31,6 +31,11 @@
 
         @endforeach
     </div>
+    @if($books->count())
+        <nav class="mt-4 mb-4">
+            {{ $books->appends(request()->query())->links() }}
+        </nav>
+    @endif
     <ul>
         @forelse($books as $book)
             <li class="mb-4">
@@ -58,4 +63,5 @@
             </li>
         @endforelse
     </ul>
+
 @endsection
