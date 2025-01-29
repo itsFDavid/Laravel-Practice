@@ -9,13 +9,32 @@ use Illuminate\Http\Request;
 
 class EventController extends Controller
 {
+
+    protected function shouldIncludeRelation(string $relation): bool{
+        $include = request()->query('include');
+        if(!$include) {
+            return false;
+        }
+        $relations = array_map('trim', explode(',', $include));
+        return in_array($relation, $relations);
+    }
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
+        $query = Event::query();
+        // con este array se puede controlar que relaciones se incluiran en la respuesta
+        // en este caso se incluiran las relaciones user, attendees y attendees.user
+        $relations = ['user', 'attendees', 'attendees.user'];
+        foreach($relations as $relation){
+            $query->when(
+                $this->shouldIncludeRelation($relation),
+                fn ($q) => $q->with($relation)
+            );
+        }
         return EventResource::collection(
-            Event::with('user')->paginate()
+            $query->latest()->paginate()
         );
     }
 
@@ -42,7 +61,7 @@ class EventController extends Controller
      */
     public function show(Event $event)
     {
-        $event->load('user', 'attendee');
+        $event->load('user', 'attendees');
         return new EventResource($event);
     }
 

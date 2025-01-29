@@ -21,8 +21,8 @@ class EventResource extends JsonResource
             "start_time"=> $this->start_time,
             "end_time"=> $this->end_time,
             "user" => new UserResource($this->whenLoaded('user')),
-            "attendee" => AttendeeResource::collection(
-                $this->whenLoaded("attendee")
+            "attendees" => AttendeeResource::collection(
+                $this->whenLoaded("attendees")
             ),
         ];
     }
