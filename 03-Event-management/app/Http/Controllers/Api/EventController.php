@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Routing\Controller;
 use App\Http\Resources\EventResource;
 use App\Http\Traits\CanLoadRelationships;
@@ -13,6 +14,8 @@ class EventController extends Controller
 {
 
     use CanLoadRelationships;
+    // hay que importar AuthorizesRequests para poder usar el metodo authorizeResource
+    use AuthorizesRequests;
     // con este array se puede controlar que relaciones se incluiran en la respuesta
     // en este caso se incluiran las relaciones user, attendees y attendees.user
     private array $relations = ['user', 'attendees', 'attendees.user'];
@@ -20,6 +23,7 @@ class EventController extends Controller
     public function __construct()
     {
         $this->middleware('auth:sanctum')->except(['index', 'show']);
+        $this->authorizeResource(Event::class, 'event');
     }
     /**
      * Display a listing of the resource.
@@ -57,7 +61,7 @@ class EventController extends Controller
      */
     public function show(Event $event)
     {
-        $event->load('user', 'attendees');
+        // $event->load('user', 'attendees');
         return new EventResource($this->loadRelationships($event, $this->relations));
     }
 
@@ -70,7 +74,8 @@ class EventController extends Controller
         //     abort(403, 'You are not allowed to update this event');
         // }
         // esto hace lo mismo que la linea anterior
-        Gate::authorize('update-event', $event);
+        // Gate::authorize('update-event', $event);
+        // ya lo estamos controlando con policys con authorizeResource
 
         $event->update(
             $request->validate([
