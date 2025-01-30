@@ -3,6 +3,10 @@
         <label>Poll Title</label>
         {{-- Se necesita añadir .live para que muestre lo que se escriba al momento --}}
         <input type="text" wire:model.live.debounce.250ms="title">
+        @error('title')
+            <div class="text-red-500">{{$message}}</div>
+        @enderror
+
 
         <div class="mb-4 mt-4">
             <button class="btn" wire:click.prevent="addOption">Add Option</button>
@@ -14,9 +18,12 @@
                     <label class="text-sm">Option {{$index + 1}}</label>
 
                     <div class="flex gap-2 items-center">
-                        <input type="text" class="bg-white" wire:model="options.{{ $index }}">
+                        <input type="text" class="bg-white" wire:model.live="options.{{ $index }}">
                         <button class="btn bg-white" wire:click.prevent="removeOption({{$index}})">Remove</button>
                     </div>
+                    @error("options.{$index}")
+                        <div class="text-red-500">{{$message}}</div>
+                    @enderror
                 </div>
             @endforeach
         </div>
