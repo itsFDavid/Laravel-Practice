@@ -20,10 +20,14 @@
         </div>
 
         {{-- Para mostrar los parrafos con su salto de linea se usa esto --}}
-        <p class="text-sm text-slate-500">
+        <p class="text-sm text-slate-500 mb-4">
             {!!  nl2br($job->description) !!}
         </p>
 
+        <div>
+            <a  class="rounded-md border border-slate-300 bg-white px-2.5 py-1.5 text-center text-sm font-semibold text-black shadow-sm hover:bg-slate-100"
+                href="{{ route('jobs.show', $job) }}">show</a>
+        </div>
     </x-card>
     @endforeach
 </x-layout>
