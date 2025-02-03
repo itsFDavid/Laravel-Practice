@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Job;
 use Illuminate\Http\Request;
+use Symfony\Component\Translation\Exception\NotFoundResourceException;
 
 class JobController extends Controller
 {
@@ -28,6 +29,10 @@ class JobController extends Controller
         )->when(
             request('max_salary'), function ($query){
                $query->where('salary', '<=', request('max_salary'));
+            }
+        )->when(
+            request('experience'), function( $query){
+                $query->where('experience', request('experience'));
             }
         );
 
