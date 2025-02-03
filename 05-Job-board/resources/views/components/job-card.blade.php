@@ -17,10 +17,5 @@
         </div>
     </div>
 
-    {{-- Para mostrar los parrafos con su salto de linea se usa esto --}}
-    <p class="text-sm text-slate-500 mb-4">
-        {!!  nl2br($job->description) !!}
-    </p>
-
     {{ $slot}}
 </x-card>
