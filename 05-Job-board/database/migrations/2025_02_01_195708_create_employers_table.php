@@ -1,5 +1,7 @@
 <?php
 
+// Changed file name from 2025_02_04_195708_create_employers_table.php to 2025_02_01_195708_create_employers_table.php
+
 use App\Models\Employer;
 use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
@@ -21,10 +23,6 @@ return new class extends Migration
                     ->constrained();
             $table->timestamps();
         });
-
-        Schema::table('jobs', function (Blueprint $table) {
-            $table->foreignIdFor(Employer::class)->constrained();
-        });
     }
 
     /**
@@ -32,8 +30,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('jobs', function (Blueprint $table){
-            $table->dropForeignIdFor(Employer::class);
+        Schema::table('employers', function (Blueprint $table) {
+            $table->dropForeign(['user_id']); // Eliminar la clave foránea
         });
         Schema::dropIfExists('employers');
     }
