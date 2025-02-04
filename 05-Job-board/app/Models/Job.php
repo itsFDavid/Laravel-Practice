@@ -27,7 +27,10 @@ class Job extends Model
             $filters['search'] ?? null, function ($query, $search){
                 $query->where(function($query) use ($search){
                     $query->where('title', 'LIKE', '%'. $search .'%')
-                    ->orWhere('description', 'LIKE', '%'. $search .'%');
+                        ->orWhere('description', 'LIKE', '%'. $search .'%')
+                        ->orWhereHas('employer', function ($query) use ($search){
+                            $query->where('company_name', 'LIKE', '%'. $search .'%');
+                        });
                 });
             }
         )->when(

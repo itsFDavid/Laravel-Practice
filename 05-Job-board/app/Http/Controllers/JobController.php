@@ -22,7 +22,7 @@ class JobController extends Controller
                 'category'
             ]);
 
-        $jobs = Job::filter($filers);
+        $jobs = Job::with('employer')->filter($filers);
 
         return view('job.index' , ['jobs' => $jobs->get()]);
     }
@@ -48,7 +48,10 @@ class JobController extends Controller
      */
     public function show(Job $job)
     {
-        return view('job.show', compact('job'));
+        return view(
+            'job.show',
+            ['job' =>$job->load('employer.jobs')]
+        );
     }
 
     /**
