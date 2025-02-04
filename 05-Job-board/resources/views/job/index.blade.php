@@ -7,7 +7,7 @@
 
     <x-card class="mb-4 text-sm">
         <form action="{{ route('jobs.index') }}" method="GET">
-            @csrf
+            {{-- @csrf <- esto hay que usarlo solo cuando sea PUT, PATCH, POST o incluso DELETE--}}
             <div class="mb-4 grid grid-cols-2 gap-4">
                 <div>
                     <div class="mb-1 font-semibold">Search</div>
@@ -23,32 +23,14 @@
                 </div>
                 <div>
                     <div class="mb-1 font-semibold">Experience</div>
-                    <label for="experience" class="mb-1 flex items-center">
-                        <input type="radio" name="experience" value=""
-                            @checked(!request('experience'))
-                        />
-                        <span class="ml-2">All</span>
-                    </label>
-                    <label for="experience" class="mb-1 flex items-center">
-                        <input type="radio" name="experience" value="entry"
-                            @checked(request('experience') === 'entry')
-                        />
-                        <span class="ml-2">Entry</span>
-                    </label>
-                    <label for="experience" class="mb-1 flex items-center">
-                        <input type="radio" name="experience" value="intermediate"
-                            @checked(request('experience') === 'intermediate')
-                        />
-                        <span class="ml-2">Intermediate</span>
-                    </label>
-                    <label for="experience" class="mb-1 flex items-center">
-                        <input type="radio" name="experience" value="senior"
-                            @checked(request('experience') === 'senior')
-                        />
-                        <span class="ml-2">Senior</span>
+                        <x-radio-group name="experience" :options="\App\Models\Job::$experience"/>
                     </label>
                 </div>
-                <div>4</div>
+                <div>
+                    <div class="mb-1 font-semibold">Category</div>
+                    <x-radio-group name="category" :options="\App\Models\Job::$category"/>
+                </label>
+                </div>
             </div>
 
             <button class="w-full rounded-md border py-1.5">Filter</button>
