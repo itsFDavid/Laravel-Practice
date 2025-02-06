@@ -31,9 +31,11 @@
             </div>
         </x-job-card>
     @empty
-        <div class="text-center text-slate-500">
+        <div class="mt-40 text-center text-slate-500">
             <p>You have not applied to any jobs yet.</p>
-            <p>Find a job you like and apply now!</p>
+            <p>Find a job you like and apply now
+                <a href="{{ route('jobs.index') }}" class="text-blue-600 hover:underline">here</a>
+            </p>
         </div>
     @endforelse
 
