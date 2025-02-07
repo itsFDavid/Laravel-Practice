@@ -29,12 +29,10 @@
                                     \App\Models\Job::$experience
                                 )"
                         />
-                    </label>
                 </div>
                 <div>
                     <div class="mb-1 font-semibold">Category</div>
                     <x-radio-group name="category" :options="\App\Models\Job::$category"/>
-                </label>
                 </div>
             </div>
 
