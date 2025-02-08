@@ -3,16 +3,19 @@
 namespace App\Http\Controllers;
 
 use App\Models\Job;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Http\Request;
 use Symfony\Component\Translation\Exception\NotFoundResourceException;
 
 class JobController extends Controller
 {
+    use AuthorizesRequests;
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
+        $this->authorize('viewAny', Job::class);
         $filers = request()
             ->only([
                 'search',
@@ -48,6 +51,7 @@ class JobController extends Controller
      */
     public function show(Job $job)
     {
+        $this->authorize('view', $job);
         return view(
             'job.show',
             ['job' =>$job->load('employer.jobs')]
