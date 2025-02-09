@@ -14,9 +14,8 @@ Route::get('', fn() => to_route('jobs.index'));
 Route::resource('jobs', JobController::class)
         ->only(['index', 'show']);
 
-Route::get('login', fn() => to_route('auth.create'))->name('login');
-Route::resource('auth', AuthController::class)
-        ->only(['create', 'store']);
+Route::get('/login', [AuthController::class, 'create'])->name('auth.create');
+Route::post('/login', [AuthController::class, 'login'])->name('auth.login');
 
 Route::delete('logout', fn() => to_route('auth.destroy'))->name('logout');
 ROute::delete('auth', [AuthController::class, 'destroy'])

@@ -4,7 +4,7 @@
     </h1>
 
     <x-card class="py-8 px-16">
-        <form action="{{ route('auth.store') }}" method="POST">
+        <form action="{{ route('auth.login') }}" method="POST">
             @csrf
 
             <div class="mb-8">
