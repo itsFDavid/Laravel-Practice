@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
@@ -18,7 +20,7 @@ class AuthController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function login(Request $request)
     {
         $request->validate([
             'email'=> 'required|email',
@@ -33,6 +35,26 @@ class AuthController extends Controller
         }else{
             return redirect()->back()->with('error', 'Invalid credentials');
         }
+    }
+
+    public function register(Request $request)
+    {
+        $validateData = $request->validate([
+            'name'=> 'required',
+            'email'=> 'required|email',
+            'password'=> 'required|confirmed'
+        ]);
+        $hashedPassword = Hash::make($validateData['password']);
+        $data = [
+            'name'=> $validateData['name'],
+            'email'=> $validateData['email'],
+            'password'=> $hashedPassword
+        ];
+
+        User::create($data);
+
+        return redirect()->to_route('login');
+
     }
 
 
