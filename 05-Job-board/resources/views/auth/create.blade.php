@@ -29,7 +29,7 @@
                     </div>
                 </div>
                 <div>
-                    <a href="#" class="text-indigo-600 hover:underline">Forget password?</a>
+                    <a href="{{ route('auth.register') }}" class="text-indigo-600 hover:underline">Register?</a>
                 </div>
             </div>
 

@@ -14,6 +14,10 @@ class AuthController extends Controller
      */
     public function create()
     {
+        return view('auth.register');
+    }
+
+    public function signIn(){
         return view('auth.create');
     }
 
