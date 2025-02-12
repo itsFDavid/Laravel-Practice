@@ -38,7 +38,10 @@
                     </li>
                 @else
                     <li>
-                        <a href="{{ route('auth.create') }}">Sign in</a>
+                        <a href="{{ route('auth.login') }}">Sign in</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('auth.register') }}">Register</a>
                     </li>
                 @endauth
             </ul>

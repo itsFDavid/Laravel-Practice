@@ -46,7 +46,7 @@ class AuthController extends Controller
         $validateData = $request->validate([
             'name'=> 'required',
             'email'=> 'required|email',
-            'password'=> 'required|confirmed'
+            'password'=> 'required'
         ]);
         $hashedPassword = Hash::make($validateData['password']);
         $data = [
@@ -57,7 +57,7 @@ class AuthController extends Controller
 
         User::create($data);
 
-        return redirect()->to_route('login');
+        return redirect()->route('auth.signIn');
 
     }
 
