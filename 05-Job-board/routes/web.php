@@ -24,6 +24,7 @@ Route::delete('logout', fn() => to_route('auth.destroy'))->name('logout');
 ROute::delete('auth', [AuthController::class, 'destroy'])
         ->name('auth.destroy');
 
+// this gruop have middleware auth  
 Route::middleware('auth')->group(function(){
     Route::resource('job.application', JobApplicationController::class)
                 ->only(['create', 'store']);
