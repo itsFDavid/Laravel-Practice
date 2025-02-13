@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\ValidationException;
 
 class AuthController extends Controller
 {
@@ -55,10 +58,13 @@ class AuthController extends Controller
             'password'=> $hashedPassword
         ];
 
-        User::create($data);
-
-        return redirect()->route('auth.signIn');
-
+        try{
+            User::create($data);
+            return redirect()->intended('/')
+                ->with('success', 'User created successfully');
+        }catch(\Exception $e){
+            return $this->handleException($e);
+        }
     }
 
 
@@ -72,5 +78,25 @@ class AuthController extends Controller
         request()->session()->regenerateToken();
 
         return redirect('/');
+    }
+
+    private function handleException($e) {
+        // Verificar si la excepción es de entrada duplicada
+        if ($e instanceof QueryException && $e->errorInfo[1] == 1062) {
+            return redirect()->back()->with('error', 'El correo electrónico ya está registrado.');
+        }
+
+        // Verificar si el recurso no fue encontrado
+        if ($e instanceof ModelNotFoundException) {
+            return redirect()->back()->with('error', 'Recurso no encontrado.');
+        }
+
+        // Verificar si hay errores de validación
+        if ($e instanceof ValidationException) {
+            return redirect()->back()-> with('error', 'Datos inválidos.');
+        }
+
+        // Otras excepciones
+        return redirect()->back()->with('error', 'Ocurrió un error inesperado.');
     }
 }
