@@ -34,6 +34,7 @@ class JobPolicy
      */
     public function create(User $user): bool
     {
+        // this is for employer only
         return $user->employer !== null;
     }
 
