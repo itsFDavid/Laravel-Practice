@@ -43,9 +43,11 @@ class JobPolicy
      */
     public function update(User $user, Job $job): bool | Response
     {
+        // this is for employer only
         if($job->employer->user_id !== $user->id){
             return false;
         }
+        // check if the job has applications
         if($job->jobApplications()->count() > 0){
             return Response::deny('Cannot change the job with applications');
         }
