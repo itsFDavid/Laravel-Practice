@@ -76,6 +76,7 @@ class JobPolicy
      */
     public function forceDelete(User $user, Job $job): bool
     {
+        // this is for employer only
         return $job->employer->user_id !== $user->id;
     }
 
