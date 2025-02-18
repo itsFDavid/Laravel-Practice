@@ -81,6 +81,7 @@ class JobPolicy
     }
 
     public function apply(User $user, Job $job): bool{
+        // check if the user has already applied
         return !$job->hasUserApplied($user);
     }
 }
