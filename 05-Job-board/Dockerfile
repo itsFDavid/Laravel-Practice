@@ -1,18 +1,25 @@
-FROM laravelphp/php-fpm:8.0
+FROM php:8.2-fpm
 
-# Instalar dependencias de Laravel y Composer
-RUN apt-get update && apt-get install -y libpng-dev libjpeg-dev libfreetype6-dev zip git
-RUN docker-php-ext-configure gd --with-freetype --with-jpeg
-RUN docker-php-ext-install gd pdo pdo_mysql
+# Instalar extensiones necesarias
+RUN apt-get update && apt-get install -y \
+    libpng-dev \
+    zip \
+    unzip \
+    && docker-php-ext-install pdo_mysql
 
 # Instalar Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-WORKDIR /var/www
+# Configurar el entorno de trabajo
+WORKDIR /app
 
-# Instalar dependencias de Laravel
+# Copiar archivos
 COPY . .
 
-RUN composer install
+# Instalar dependencias
+RUN composer install --no-dev --optimize-autoloader
+
+# Exponer el puerto
+EXPOSE 9000
 
 CMD ["php-fpm"]
