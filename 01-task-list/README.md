@@ -3,3 +3,7 @@
 # TO-DO APP
 
 Este es un proyecto de tareas por hacer, echo con laravel.
+
+## Configuracion del proyecto
+
+1. Copiar el archivo .env.exmaple a un archivo .env, configurar las varibales de entorno propias
