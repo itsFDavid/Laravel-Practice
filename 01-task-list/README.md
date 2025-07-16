@@ -4,6 +4,16 @@
 
 Este es un proyecto de tareas por hacer, echo con laravel.
 
+## Link del repositorio
+
+```bash
+git clone https://github.com/itsFDavid/Laravel-Practice.git/01-task-list
+```
+
 ## Configuracion del proyecto
 
 1. Copiar el archivo .env.exmaple a un archivo .env, configurar las varibales de entorno propias
+
+```bash
+mv .env.example .env
+```
