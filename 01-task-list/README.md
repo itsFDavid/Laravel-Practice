@@ -17,3 +17,8 @@ git clone https://github.com/itsFDavid/Laravel-Practice.git/01-task-list
 ```bash
 mv .env.example .env
 ```
+
+2. Una vez conectado a la base de datos, hacer las migraciones
+```bash
+php artisan migrate
+```
