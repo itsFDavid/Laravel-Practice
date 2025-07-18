@@ -22,3 +22,9 @@ mv .env.example .env
 ```bash
 php artisan migrate
 ```
+
+3. Levanta el proyecto
+```bash
+php artisan serve
+```
+
