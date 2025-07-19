@@ -4,6 +4,11 @@
 
 Este es un proyecto de tareas por hacer, echo con laravel.
 
+## Versiones requeridas
+
+* PHP >= 8
+* Laravel >= 5
+
 ## Link del repositorio
 
 ```bash
