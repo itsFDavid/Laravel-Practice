@@ -29,20 +29,27 @@ pnpm install
 
 ```
 
-2. Copiar el archivo .env.exmaple a un archivo .env, configurar las varibales de entorno propias
-
+2. Generar la key de la app
 ```bash
-mv .env.example .env
+php artisan key:generate
 ```
 
-3. Una vez conectado a la base de datos, hacer las migraciones
+3. Copiar el archivo .env.exmaple a un archivo .env, configurar las varibales de entorno propias
+
+```bash
+cp .env.example .env
+```
+
+4. Una vez conectado a la base de datos, hacer las migraciones
 
 ```bash
 php artisan migrate
 ```
 
-4. Levanta el proyecto
+5. Levanta el proyecto
 
 ```bash
+# Para desarrollo
 php artisan serve
+pnpm run dev
 ```
