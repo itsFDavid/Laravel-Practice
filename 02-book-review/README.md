@@ -26,3 +26,8 @@ compose install
 # npm install
 pnpm install
 ```
+
+2. Copia el archivo de configuracion de las variables de entorno y configura las tuyas propias
+```bash
+cp .env.example .env
+```
