@@ -37,3 +37,8 @@ cp .env.example .env
 php artisan key:generate
 ```
 
+4. Una vez configurada la base de datos, crea las migraciones
+```bash
+php artisan migrate
+```
+
