@@ -14,3 +14,15 @@ Este proyecto prentende controlar la asistencia a eventos, mandar recordatorios 
 ```bash
 git clone https://github.com/itsFDavid/Laravel-Practice.git/03-Event-management
 ```
+
+## Configuracion del proyecto
+
+1. Instala las dependencias necesarias
+```bash
+composer install
+
+# Depende de tu gestor de paquetes favorito
+# yarn install
+# npm install
+pnpm install
+```
