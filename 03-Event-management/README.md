@@ -31,3 +31,8 @@ pnpm install
 ```bash
 cp .env.exmaple .env
 ```
+
+3. Genera la clave unica de la app
+```bash
+php artisan key:generate
+```
