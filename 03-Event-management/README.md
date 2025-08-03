@@ -36,3 +36,8 @@ cp .env.exmaple .env
 ```bash
 php artisan key:generate
 ```
+
+4. Una vez configurada la conexion con la base de datos, realiza las migraciones necesarias
+```bash
+php artisan migrate
+```
