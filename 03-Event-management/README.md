@@ -41,3 +41,8 @@ php artisan key:generate
 ```bash
 php artisan migrate
 ```
+
+5. Levanta el proyecto
+```bash
+php artisan serve
+```
