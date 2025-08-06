@@ -51,4 +51,6 @@ php artisan serve
 
 prefix: `/api`
 
-
+- Auth:
+    - `/login`
+    - `/logout`
