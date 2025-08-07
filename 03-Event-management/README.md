@@ -54,3 +54,5 @@ prefix: `/api`
 - Auth:
     - `/login`
     - `/logout`
+- User:
+    - `/user`: return info about user with the token passed in the Authorization
