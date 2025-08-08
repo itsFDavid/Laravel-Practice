@@ -52,7 +52,13 @@ php artisan serve
 prefix: `/api`
 
 - Auth:
-    - `/login`
-    - `/logout`
+    - `POST /login`
+    - `POST /logout`
 - User:
-    - `/user`: return info about user with the token passed in the Authorization
+    - `GET /user`: return info about user with the token passed in the Authorization
+- Event:
+    - `POST /events`: Create an event
+    - `GET /events`: Get all events, you can use this to get relations `?include=attendees.user, user`
+    - `GET /events/:id`: Get an event by id
+    - `PUT /events/:id`: Update an event by ud
+    - `DELETE /events/:id`: Delete an event by id
