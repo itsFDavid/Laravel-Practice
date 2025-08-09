@@ -62,3 +62,8 @@ prefix: `/api`
     - `GET /events/:id`: Get an event by id
     - `PUT /events/:id`: Update an event by ud
     - `DELETE /events/:id`: Delete an event by id
+- Attendee:
+    - `GET /events/:idEvent/attendees`: get all attendees for this event
+    - `GET /events/:idEvent/attendees/:idAttendee`: return info about the attendee in this event
+    - `DELETE /events/:idEvent/attendees/:idAttendee`: delete attende in this event
+    - `POST /events/:idEvent/attendees`: create an attendee for this event with the token passed in the Authorization
