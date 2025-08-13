@@ -16,4 +16,14 @@ Este proyecto prentende crear encuestas que se van actualizando y mostrando los 
 git clone https://github.com/itsFDavid/Laravel-Practice.git/04-Livewire-poll
 ```
 
+## Configuracion del proyecto
 
+1. Instala las dependencias necesarias
+```bash
+composer install
+
+# Depende de tu gestor de paquetes favorito
+# yarn install
+# npm install
+pnpm install
+```
