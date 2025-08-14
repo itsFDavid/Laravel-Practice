@@ -27,3 +27,8 @@ composer install
 # npm install
 pnpm install
 ```
+
+2. Copia el archivo de las variables de configuracion del entorno y añade las propias
+```bash
+cp .env.example .env
+```
