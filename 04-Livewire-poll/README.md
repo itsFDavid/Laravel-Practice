@@ -32,3 +32,8 @@ pnpm install
 ```bash
 cp .env.example .env
 ```
+
+3. Crea la clave unica de la aplicacion
+```bash
+php artisan key:generate
+```
