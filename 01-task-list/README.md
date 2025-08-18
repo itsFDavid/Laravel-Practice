@@ -7,7 +7,7 @@ Este es un proyecto de tareas por hacer, echo con laravel.
 ## Versiones requeridas
 
 -   PHP >= 8
--   Laravel >= 5
+-   Laravel >= 11
 
 ## Link del repositorio
 
