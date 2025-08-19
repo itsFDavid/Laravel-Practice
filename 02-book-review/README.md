@@ -7,7 +7,7 @@ Este proyecto pretende dejar reseñar a titulos de libros, estas se pueden filtr
 ## Versiones requeridas
 
 -   PHP >= 8
--   Laravel >= 5
+-   Laravel >= 11
 
 ## Link del repositorio
 
