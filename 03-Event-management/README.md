@@ -7,7 +7,7 @@ Este proyecto prentende controlar la asistencia a eventos, mandar recordatorios 
 ## Versiones requeridas
 
 -   PHP >= 8
--   Laravel >= 5
+-   Laravel >= 11
 
 ## Link del repositorio
 
