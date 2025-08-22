@@ -14,3 +14,17 @@ Este proyecto pretende una plataforma para postular a trabajas, crear ofertas de
 ```bash
 git clone https://github.com/itsFDavid/Laravel-Practice.git/05-Job-board
 ```
+
+## Configuracion del proyecto
+
+1. Instalas dependencias
+
+```bash
+composer install
+
+# Depende tu controlador de paquetes favorito
+# yarn install
+# npm install
+pnpm install
+
+```
