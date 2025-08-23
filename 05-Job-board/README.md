@@ -28,3 +28,8 @@ composer install
 pnpm install
 
 ```
+
+2. Copia el archivo de las variables d e configuracion de entorno
+```bash
+cp .env.exmaple .env
+```
