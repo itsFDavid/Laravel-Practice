@@ -43,3 +43,14 @@ php artisan key:generate
 ```bash
 php artisan migrate
 ```
+
+5. levanta el proyecto
+```bash
+php artisan serve
+
+# Modo desarrollo
+pnpm run dev
+
+# Generar los assets para produccion
+pnpm run build
+```
