@@ -30,21 +30,25 @@ pnpm install
 ```
 
 2. Copia el archivo de las variables d e configuracion de entorno
+
 ```bash
 cp .env.exmaple .env
 ```
 
 3. Crea la clave unica de la aplicacion
+
 ```bash
 php artisan key:generate
 ```
 
 4. Una vez configurada la conexion a la base de datos, crea las migraciones necesarias
+
 ```bash
 php artisan migrate
 ```
 
 5. levanta el proyecto
+
 ```bash
 php artisan serve
 
