@@ -46,8 +46,12 @@ php artisan key:generate
 ```bash
 php artisan migrate
 
-# O puedes generar de una vez datos de prueba, para mas info revisa el archivo en database/seeders
+# O puedes generar de una vez datos de prueba
+# para mas info revisa el archivo en database/seeders
 php artisan migrate --seed
+# o incluso puedes refrescar la base de datos haciendo las migraciones 
+# y el seed de los datos, insertando nuevos y borrando los anteriores
+php artisan migrate:refresh --seed
 ```
 
 
