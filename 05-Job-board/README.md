@@ -67,3 +67,12 @@ pnpm run dev
 # Generar los assets para produccion
 pnpm run build
 ```
+
+## For developers
+
+I wirte a Dockerfile and exists here a docker compose file, so you can run only
+```bash
+docker compose up -d --build
+```
+
+With this command you can run the app, the only thing that you need do first is configure the .env file and check the same variables in the docker compose for the instance of the database
