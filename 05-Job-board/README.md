@@ -32,7 +32,7 @@ pnpm install
 2. Copia el archivo de las variables d e configuracion de entorno
 
 ```bash
-cp .env.exmaple .env
+cp .env.example .env
 ```
 
 3. Crea la clave unica de la aplicacion
@@ -49,12 +49,10 @@ php artisan migrate
 # O puedes generar de una vez datos de prueba
 # para mas info revisa el archivo en database/seeders
 php artisan migrate --seed
-# o incluso puedes refrescar la base de datos haciendo las migraciones 
+# o incluso puedes refrescar la base de datos haciendo las migraciones
 # y el seed de los datos, insertando nuevos y borrando los anteriores
 php artisan migrate:refresh --seed
 ```
-
-
 
 5. levanta el proyecto
 
@@ -71,6 +69,7 @@ pnpm run build
 ## For developers
 
 I wirte a Dockerfile and exists here a docker compose file, so you can run only
+
 ```bash
 docker compose up -d --build
 ```
