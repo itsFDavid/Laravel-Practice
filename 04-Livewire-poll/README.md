@@ -19,6 +19,7 @@ git clone https://github.com/itsFDavid/Laravel-Practice.git/04-Livewire-poll
 ## Configuracion del proyecto
 
 1. Instala las dependencias necesarias
+
 ```bash
 composer install
 
@@ -29,21 +30,25 @@ pnpm install
 ```
 
 2. Copia el archivo de las variables de configuracion del entorno y añade las propias
+
 ```bash
 cp .env.example .env
 ```
 
 3. Crea la clave unica de la aplicacion
+
 ```bash
 php artisan key:generate
 ```
 
 4. Una vez configurada la conexion con la base de datos, haz las migreaciones necesarias
+
 ```bash
 php artisan migrate
 ```
 
 5. Levanta el proyecto
+
 ```bash
 php artisan serve
 
