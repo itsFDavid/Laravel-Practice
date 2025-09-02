@@ -30,6 +30,7 @@ pnpm install
 ```
 
 2. Generar la key de la app
+
 ```bash
 php artisan key:generate
 ```
