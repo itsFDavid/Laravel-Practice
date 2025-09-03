@@ -18,6 +18,7 @@ git clone https://github.com/itsFDavid/Laravel-Practice.git/02-book-review
 ## Configuracion del proyecto
 
 1. Instalas dependencias
+
 ```bash
 compose install
 
@@ -28,21 +29,25 @@ pnpm install
 ```
 
 2. Copia el archivo de configuracion de las variables de entorno y configura las tuyas propias
+
 ```bash
 cp .env.example .env
 ```
 
 3. Genera la clave unica de la aplicacion
+
 ```bash
 php artisan key:generate
 ```
 
 4. Una vez configurada la base de datos, crea las migraciones
+
 ```bash
 php artisan migrate
 ```
 
 5. Levanta el proyecto
+
 ```bash
 php artisan serve
 
